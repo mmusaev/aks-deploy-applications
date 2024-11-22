@@ -16,7 +16,7 @@ spec:
         app: akswebapp
     spec:
       containers:
-      - image: cr5376.azurecr.io/akswebapp/akswebapp:30a68b63
+      - image: cr5376.azurecr.io/akswebapp:v1
         name: akswebapp
         envFrom:
         - configMapRef:
