@@ -40,7 +40,7 @@ jobs:
           $line = Get-Content -Path $DeploymentYAML | Select-String image: | Select-Object -ExpandProperty Line
           $content = Get-Content $DeploymentYAML
           $content | ForEach-Object {$_ -replace $line,"        image: ${{ secrets.REGISTRY }}.azurecr.io/${{ secrets.REPOSITORY }}:${{ github.run_number }}"} | Set-Content -Path $DeploymentYAML
-        azPSVersion: "latest"
+        azPSVersion: "latest" 
     
     - name: Commit changes in manifest to repo
       run: | 
@@ -49,3 +49,4 @@ jobs:
         git add Manifests/deployment.yaml
         git commit -m "Update image version in K8s Deployment manifests file"
         git push origin
+    
