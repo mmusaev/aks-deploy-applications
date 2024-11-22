@@ -45,7 +45,7 @@ jobs:
     - name: Commit changes in manifest to repo
       run: | 
         git config user.name "GitHub Actions"
-        git config user.email ""
+        git config user.email "${{ secrets.GIT_USER_EMAIL }}"
         git add Manifests/deployment.yaml
         git commit -m "Update image version in K8s Deployment manifests file"
         git push origin
